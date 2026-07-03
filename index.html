@@ -76,7 +76,7 @@
     display:inline-flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:center;
     font-size:.84rem; font-weight:700; letter-spacing:.01em; color:var(--green-d);
     background:rgba(109,166,99,.16); border:1px solid rgba(65,99,59,.18);
-    padding:7px 14px; border-radius:999px; margin-bottom:16px;
+    padding:7px 14px; border-radius:999px; margin-bottom:22px;
   }
   .eyebrow .star{color:#d8a63b}
 
@@ -120,31 +120,27 @@
   .cv{content-visibility:auto; contain-intrinsic-size:auto 640px}
 
   /* ---------- Hero ---------- */
-  .hero{padding:30px 0 42px; background:
+  .hero{padding:36px 0 52px; background:
       radial-gradient(1200px 500px at 50% -10%, rgba(109,166,99,.16), transparent 60%),
       linear-gradient(180deg,#fbf8f2, var(--cream));}
   .hero .read{text-align:center}
-  .hero h1{color:var(--ink)}
-  .hero .sub{font-size:1.08rem; color:var(--ink-soft); margin:16px auto 20px; max-width:620px}
-  .hero-bullets{list-style:none; padding:0; margin:0 auto 22px; display:flex; flex-wrap:wrap; gap:8px 10px; justify-content:center; max-width:600px}
+  .hero h1{color:var(--ink); margin-bottom:.6em}
+  .hero .sub{font-size:1.08rem; color:var(--ink-soft); margin:22px auto 30px; max-width:600px}
+  .hero-bullets{list-style:none; padding:0; margin:28px auto 0; display:flex; flex-wrap:wrap; gap:9px; justify-content:center; max-width:520px}
   .hero-bullets li{
-    display:inline-flex; align-items:center; gap:7px; background:#fff; border:1px solid var(--line);
-    border-radius:999px; padding:8px 14px; font-size:.9rem; font-weight:700; color:var(--ink);
+    display:inline-flex; align-items:center; gap:6px; background:#fff; border:1px solid var(--line);
+    border-radius:999px; padding:7px 15px; font-size:.86rem; font-weight:700; color:var(--ink);
   }
   .hero-bullets li::before{content:"✓"; color:var(--green); font-weight:900}
-  .disclaimer{font-size:.82rem; color:var(--ink-soft); max-width:520px; margin:14px auto 0; font-style:italic}
+  .disclaimer{font-size:.82rem; color:var(--ink-soft); max-width:500px; margin:26px auto 0; font-style:italic; line-height:1.5}
   .sec-green .disclaimer{color:var(--beige)}
   .trust-row{
-    display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:center; align-items:center;
-    margin-top:18px; font-size:.88rem; font-weight:600; color:var(--ink-soft);
+    display:flex; flex-direction:column; gap:10px; justify-content:center; align-items:center;
+    margin-top:28px; font-size:.9rem; font-weight:600; color:var(--ink-soft);
   }
-  .trust-row .item{display:inline-flex; align-items:center; gap:7px}
-  .trust-row .dot{width:6px;height:6px;border-radius:50%;background:var(--green-2)}
+  .trust-row .item{text-align:center; line-height:1.4}
   .stars{color:#d8a63b; letter-spacing:1px}
-  .shotfig{margin:30px auto 0; max-width:860px}
-  .shotfig .frame{border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid var(--line); background:#fff}
-  .shotfig figcaption{font-size:.8rem; color:var(--ink-soft); padding:9px 6px 0; text-align:center}
-  .illus{font-size:.74rem; color:var(--ink-soft); opacity:.85}
+  .trust-row .stars{margin-right:5px}
 
   /* ---------- Steps / demo ---------- */
   .steps{display:grid; gap:24px; margin-top:32px}
@@ -153,9 +149,9 @@
   .step .num{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:11px; background:var(--green); color:#fff; font-weight:800; font-size:1.05rem; margin-bottom:12px}
   .step h3{margin-bottom:.35em}
   .step p{color:var(--ink-soft); font-size:1rem}
-  .step .shot{border-top:1px solid var(--line); background:var(--cream-2); position:relative}
+  .step .shot{border-top:1px solid var(--line); background:var(--cream-2)}
   .step .shot img{width:100%}
-  .step .shot .tag-illus{position:absolute; top:8px; right:8px; background:rgba(64,44,32,.72); color:#fff; font-size:.68rem; font-weight:700; padding:3px 8px; border-radius:6px}
+  .shot-cap{display:block; font-size:.72rem; color:var(--ink-soft); text-align:center; padding:9px 12px; opacity:.9; line-height:1.4}
   .badge-green{color:var(--ok); font-weight:800}
   .badge-red{color:var(--alert); font-weight:800}
 
@@ -206,7 +202,7 @@
   .price-recap{display:flex; flex-wrap:wrap; gap:8px 14px; justify-content:center; font-size:.9rem; font-weight:700; color:var(--ink-soft); margin:2px 0 20px}
   .price-recap .item{display:inline-flex; align-items:center; gap:6px}
   .price-recap .ck{color:var(--green)}
-  .pay{margin:18px auto 0; max-width:360px; opacity:.9}
+  .pay{margin:18px auto 0; width:320px; max-width:100%; opacity:.9}
   .secure{font-size:.84rem; color:var(--ink-soft); margin-top:9px; font-weight:600}
   .guarantee{display:flex; gap:18px; align-items:center; justify-content:center; flex-wrap:wrap; background:var(--cream-2); border:1px dashed var(--green-2); border-radius:18px; padding:20px; max-width:560px; margin:22px auto 0}
   .guarantee img{width:88px; height:88px; flex:0 0 auto}
@@ -249,10 +245,10 @@
   @media (min-width:720px){
     body{font-size:18px}
     .step{display:grid; grid-template-columns:1fr 1.15fr; align-items:center}
-    .step .shot{border-top:0; border-left:1px solid var(--line); height:100%; display:flex; align-items:center}
+    .step .shot{border-top:0; border-left:1px solid var(--line); height:100%; display:flex; flex-direction:column; justify-content:center}
     .step:nth-child(even) .body{order:2}
     .step:nth-child(even) .shot{border-left:0; border-right:1px solid var(--line)}
-    .tgrid{grid-template-columns:1fr 1fr 1fr}
+    .tgrid{grid-template-columns:1fr 1fr 1fr; align-items:start}
     .author{grid-template-columns:.8fr 1.2fr}
     .checklist{grid-template-columns:1fr 1fr; column-gap:26px}
     .stickybar{display:none !important}
@@ -262,7 +258,7 @@
     header.site{position:static}            /* evita 2 stickies roubando viewport */
     body{padding-bottom:76px}               /* espaço pra barra sticky não cobrir o rodapé */
     /* prova social vira carrossel (encurta o scroll no mobile) */
-    .tgrid{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:14px; margin-inline:-20px; padding:6px 20px 12px; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+    .tgrid{display:flex; align-items:flex-start; overflow-x:auto; scroll-snap-type:x mandatory; gap:14px; margin-inline:-20px; padding:6px 20px 12px; -webkit-overflow-scrolling:touch; scrollbar-width:none}
     .tgrid::-webkit-scrollbar{display:none}
     .tcard{scroll-snap-align:center; min-width:84%}
   }
@@ -288,32 +284,19 @@
       <p class="sub">A planilha que organiza a leitura dos <strong>+200 marcadores</strong> do exame, sinaliza o que está <strong>dentro ou fora da referência</strong> por gênero e sugere <strong>caminhos de conduta e suplementação</strong> pra você avaliar — com <strong>PDF pronto pro paciente</strong>.</p>
       <div class="cta-wrap">
         <a class="btn" href="https://pay.hotmart.com/M97618726I?off=j4k3bie5&amp;checkoutMode=10">Quero minha LabPRO Premium <span class="arrow">→</span></a>
-        <p class="cta-note">R$267,90 à vista ou 12× R$27,71 · acesso imediato · 7 dias de garantia incondicional</p>
+        <p class="cta-note">12× R$27,71 · acesso imediato · 7 dias de garantia</p>
       </div>
       <ul class="hero-bullets">
-        <li>Interpretação na hora, por gênero</li>
-        <li>Conduta e suplementação sugeridas</li>
-        <li>PDF pronto pro paciente</li>
+        <li>Interpreta na hora</li>
+        <li>Conduta sugerida</li>
+        <li>PDF pro paciente</li>
       </ul>
       <div class="trust-row">
-        <span class="item"><span class="dot"></span> <span class="stars">★★★★★</span> aprovada por profissionais da saúde</span>
-        <span class="item"><span class="dot"></span> 🔒 compra segura via Hotmart</span>
+        <span class="item"><span class="stars">★★★★★</span>aprovada por profissionais da saúde</span>
+        <span class="item">🔒 compra segura via Hotmart</span>
       </div>
       <p class="disclaimer">Ferramenta de apoio à decisão do profissional. Não substitui a avaliação clínica individualizada.</p>
     </div>
-
-    <figure class="shotfig">
-      <div class="frame">
-        <img src="https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP21-1024x322.jpg"
-             srcset="https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP21-768x242.jpg 768w,
-                     https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP21-1024x322.jpg 1024w,
-                     https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP21-1536x483.jpg 1536w"
-             sizes="(max-width:900px) 92vw, 860px"
-             width="1024" height="322" loading="lazy" decoding="async"
-             alt="Interface da LabPRO Premium: marcador Vitamina B12 com valor de referência por gênero e resultado sinalizado, mais a contagem de marcadores dentro/acima/abaixo.">
-      </div>
-      <figcaption><span class="illus">Interface real · exemplo ilustrativo com dados fictícios</span></figcaption>
-    </figure>
   </div>
 </section>
 
@@ -339,7 +322,7 @@
                        https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP21-1024x322.jpg 1024w"
                sizes="(max-width:720px) 92vw, 520px" width="1024" height="322" loading="lazy" decoding="async"
                alt="Marcador com valor fora da referência sinalizado e valores de referência por gênero.">
-          <span class="tag-illus">exemplo ilustrativo</span>
+          <span class="shot-cap">Exemplo ilustrativo com dados fictícios</span>
         </div>
       </article>
 
@@ -355,7 +338,7 @@
                        https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP2.2-1024x409.jpg 1024w"
                sizes="(max-width:720px) 92vw, 520px" width="1024" height="409" loading="lazy" decoding="async"
                alt="Colunas com o significado do resultado e sugestões de conduta e suplementação de referência.">
-          <span class="tag-illus">exemplo ilustrativo</span>
+          <span class="shot-cap">Exemplo ilustrativo com dados fictícios</span>
         </div>
       </article>
 
@@ -371,7 +354,7 @@
                        https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP4.2-1024x543.jpg 1024w"
                sizes="(max-width:720px) 92vw, 520px" width="1024" height="543" loading="lazy" decoding="async"
                alt="PDF de resumo do paciente com Score LabPro, gráfico de evolução e resumo por categoria.">
-          <span class="tag-illus">exemplo ilustrativo</span>
+          <span class="shot-cap">Exemplo ilustrativo com dados fictícios</span>
         </div>
       </article>
     </div>
