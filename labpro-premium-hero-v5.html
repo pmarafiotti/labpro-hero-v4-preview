@@ -167,13 +167,22 @@
   .mv-range:focus-visible{outline:none}
   .mv-range:focus-visible::-webkit-slider-thumb{outline:2px solid var(--brass); outline-offset:2px}
   .mv-range::-webkit-slider-runnable-track{height:64px; background:transparent}
-  .mv-range::-webkit-slider-thumb{-webkit-appearance:none; width:30px; height:30px; margin-top:19px; border-radius:50%;
-    background:var(--green-d); border:3px solid var(--paper); box-shadow:0 3px 12px rgba(0,0,0,.28); transition:background .3s}
+  .mv-range::-webkit-slider-thumb{-webkit-appearance:none; width:36px; height:36px; margin-top:14px; border-radius:50%;
+    background:var(--green-d); border:3px solid var(--paper); box-shadow:0 0 0 0 rgba(51,80,47,.45), 0 3px 12px rgba(0,0,0,.28); transition:background .3s; animation:mv-pulse 1.9s ease-out infinite}
   .mv-range::-moz-range-track{height:64px; background:transparent}
-  .mv-range::-moz-range-thumb{width:30px; height:30px; border-radius:50%; background:var(--green-d); border:3px solid var(--paper); box-shadow:0 3px 12px rgba(0,0,0,.28)}
+  .mv-range::-moz-range-thumb{width:36px; height:36px; border-radius:50%; background:var(--green-d); border:3px solid var(--paper); box-shadow:0 3px 12px rgba(0,0,0,.28); animation:mv-pulse 1.9s ease-out infinite}
   .is-fora .mv-range::-webkit-slider-thumb{background:var(--terra)}
   .is-fora .mv-range::-moz-range-thumb{background:var(--terra)}
-  .mv-hint{text-align:center; font-family:var(--sans); font-size:.8rem; color:var(--ink-soft); margin-top:4px}
+  .mv-used .mv-range::-webkit-slider-thumb{animation:none}
+  .mv-used .mv-range::-moz-range-thumb{animation:none}
+  @keyframes mv-pulse{0%{box-shadow:0 0 0 0 rgba(51,80,47,.45),0 3px 12px rgba(0,0,0,.28)} 70%{box-shadow:0 0 0 15px rgba(51,80,47,0),0 3px 12px rgba(0,0,0,.28)} 100%{box-shadow:0 0 0 0 rgba(51,80,47,0),0 3px 12px rgba(0,0,0,.28)}}
+  .mv-cuewrap{text-align:center; margin:0 0 -4px}
+  .mv-cue{display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:800; font-size:.9rem; color:var(--green-d); background:rgba(184,145,47,.14); border:1px solid var(--brass-line); padding:8px 16px; border-radius:999px; animation:mv-nudge 1.7s ease-in-out infinite}
+  .mv-cue .hand{font-size:1.15rem; display:inline-block; animation:mv-hand 1.7s ease-in-out infinite}
+  @keyframes mv-nudge{0%,100%{transform:translateX(-10px)} 50%{transform:translateX(10px)}}
+  @keyframes mv-hand{0%,100%{transform:rotate(-10deg)} 50%{transform:rotate(12deg)}}
+  .mv-used .mv-cue{opacity:0; transform:scale(.9); transition:opacity .4s ease, transform .4s ease; pointer-events:none}
+  .mv-hint{text-align:center; font-family:var(--sans); font-size:.8rem; color:var(--ink-soft); margin-top:8px}
   /* panel significado */
   .mv-panel{margin-top:24px; border-top:1px solid var(--hair); padding-top:22px}
   .mv-panel .mv-plabel{font-family:var(--sans); text-transform:uppercase; letter-spacing:.14em; font-size:.68rem; font-weight:700; color:var(--brass); margin-bottom:8px}
@@ -289,6 +298,7 @@
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .reveal{opacity:1 !important; transform:none !important; animation:none !important; transition:none}
+    .mv-cue, .mv-cue .hand, .mv-range::-webkit-slider-thumb, .mv-range::-moz-range-thumb{animation:none !important}
     *{transition:none !important}
   }
 </style>
@@ -352,14 +362,15 @@
           <div class="mv-state" id="mvState">acima do valor de referência</div>
         </div>
 
+        <div class="mv-cuewrap"><span class="mv-cue" id="mvCue"><span class="hand" aria-hidden="true">☝️</span> arraste o resultado</span></div>
         <div class="mv-slider">
           <div class="mv-track"></div>
           <div class="mv-band" id="mvBand"></div>
           <div class="mv-ticks" id="mvTicks"></div>
           <input type="range" class="mv-range" id="mvRange" min="300" max="1500" step="10" value="1200"
-                 aria-label="Resultado da Vitamina B12 em ng por litro" aria-describedby="mvState">
+                 aria-label="Resultado da Vitamina B12 em ng por litro. Arraste para mais ou para menos." aria-describedby="mvState">
         </div>
-        <p class="mv-hint">Arraste o resultado · referência funcional 700–1.000 ng/L</p>
+        <p class="mv-hint">↔ deslize para mais ou para menos · referência funcional 700–1.000 ng/L</p>
 
         <div class="mv-panel">
           <div class="mv-plabel">Significado &amp; caminho de referência</div>
@@ -417,9 +428,13 @@
           <img src="https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP4.2-1024x543.jpg"
                srcset="https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP4.2-768x407.jpg 768w, https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP4.2-1024x543.jpg 1024w"
                sizes="(max-width:860px) 92vw, 520px" width="1024" height="543" loading="lazy" decoding="async"
-               alt="PDF do paciente com Score LabPro, gráfico de evolução e resumo por categoria.">
+               alt="PDF do paciente: Score LabPro, evolução e resumo por categoria.">
+          <img src="https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP4.3-1024x543.jpg"
+               srcset="https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP4.3-768x407.jpg 768w, https://nutrirenatafantinati.com.br/wp-content/uploads/2026/02/IP4.3-1024x543.jpg 1024w"
+               sizes="(max-width:860px) 92vw, 520px" width="1024" height="543" loading="lazy" decoding="async"
+               alt="PDF do paciente: evolução do peso, IMC e o que melhorar agora.">
         </div>
-        <p class="cap"><span class="vers">Prancha III · PDF do paciente</span><span class="illus">exemplo ilustrativo · dados fictícios</span></p>
+        <p class="cap"><span class="vers">Prancha III · PDF do paciente (Diagnóstico e Evolução)</span><span class="illus">exemplo ilustrativo · dados fictícios</span></p>
       </figure>
     </div>
   </div>
@@ -431,9 +446,8 @@
     <div class="auth-grid">
       <div class="auth-photo reveal">
         <figure class="prancha">
-          <img src="https://nutrirenatafantinati.com.br/wp-content/uploads/2025/08/foto-renata-bio-1-768x768.jpg"
-               srcset="https://nutrirenatafantinati.com.br/wp-content/uploads/2025/08/foto-renata-bio-1-300x300.jpg 300w, https://nutrirenatafantinati.com.br/wp-content/uploads/2025/08/foto-renata-bio-1-768x768.jpg 768w"
-               sizes="(max-width:860px) 90vw, 400px" width="768" height="768" loading="lazy" decoding="async"
+          <img src="https://pmarafiotti.github.io/labpro-hero-v4-preview/renata-labproon.jpg"
+               sizes="(max-width:860px) 90vw, 400px" width="480" height="600" loading="lazy" decoding="async"
                alt="Renata Fantinati, nutricionista funcional integrativa, criadora da LabPRO Premium.">
         </figure>
         <div class="auth-sign">Renata Fantinati</div>
@@ -506,11 +520,14 @@
       <h2>O que costuma pesar antes de decidir.</h2>
     </div>
     <div class="faq reveal">
-      <details open><summary>Funciona no meu Google Sheets?</summary><p class="ans">Sim. A LabPRO roda 100% no Google Sheets — você recebe uma cópia sua e os vídeos de uso passo a passo.</p></details>
-      <details><summary>Preciso saber mexer em planilha?</summary><p class="ans">Não. Na prática, é só digitar o resultado do exame — a LabPRO faz a leitura pra você.</p></details>
-      <details><summary>Serve pra minha área?</summary><p class="ans">Sim. É usada por nutricionistas, fisioterapeutas, ortomoleculares, médicos e profissionais da saúde que atuam na nutrição funcional integrativa.</p></details>
-      <details><summary>O que é “conduta de referência”?</summary><p class="ans">São caminhos e sugestões organizados para apoiar o seu raciocínio — inclusive quando a referência é não suplementar. A validação final é sempre sua: a LabPRO não substitui a avaliação clínica.</p></details>
-      <details><summary>E a garantia?</summary><p class="ans">7 dias incondicional. Se não fizer sentido pra você, é só pedir o reembolso dentro do prazo e devolvemos 100% do valor.</p></details>
+      <details open><summary>Como consigo ver ela funcionando?</summary><p class="ans">A Nutri Renata gravou uma demonstração mostrando a LabPRO na prática, passo a passo. <a href="https://youtu.be/E3KCinHeWss" style="color:var(--green-d); font-weight:700; text-decoration:underline; text-decoration-color:var(--brass)">Assista à demonstração →</a></p></details>
+      <details><summary>Funciona no celular, tablet ou notebook?</summary><p class="ans">Para o uso completo — preencher os dados e rodar as automações — use um notebook ou computador (PC ou Apple), onde tudo funciona corretamente. No celular e no tablet dá para visualizar a planilha, mas o Google Sheets nesses aparelhos não executa as automações.</p></details>
+      <details><summary>Preciso saber mexer em planilha?</summary><p class="ans">Não. Ela roda no Google Sheets e, na prática, é só digitar o resultado do exame — a LabPRO faz a leitura pra você. E você recebe as aulas explicativas passo a passo.</p></details>
+      <details><summary>Serve pra minha área?</summary><p class="ans">Sim. É usada por nutricionistas, médicos, enfermeiros, ginecologistas, fisioterapeutas e profissionais da saúde que aprofundam o raciocínio clínico funcional integrativo.</p></details>
+      <details><summary>Quantos marcadores e relações tem?</summary><p class="ans">Mais de 200 marcadores com interpretação funcional completa — significado clínico + conduta e suplementação de referência para abaixo, ideal e acima do valor de referência —, além de correlações automáticas entre exames (como TGO/TGP, Triglicérides/HDL e Neutrófilos/Linfócitos). Tudo como apoio: você revisa e valida cada análise.</p></details>
+      <details><summary>A planilha substitui a minha decisão clínica?</summary><p class="ans">Não. Ela organiza, apoia e agiliza o raciocínio; a validação final é sempre sua, considerando o histórico e o contexto de cada paciente. A LabPRO fortalece o seu olhar clínico, não substitui.</p></details>
+      <details><summary>Por quanto tempo tenho acesso?</summary><p class="ans">A planilha, depois de copiada pro seu Google Drive, é sua e pode ser usada por quanto tempo quiser — uso ilimitado, uma cópia por paciente, com até 12 exames por arquivo. Você tem 1 ano de atualizações, aulas e suporte; na renovação, conta com o cupom de aluno.</p></details>
+      <details><summary>Posso testar antes? E a garantia?</summary><p class="ans">Sim — você tem 7 dias de garantia incondicional para testar à vontade (recomendamos assistir às aulas para aproveitar todos os recursos). Se não atender às suas expectativas no prazo, devolvemos 100% do valor.</p></details>
     </div>
   </div>
 </section>
@@ -605,6 +622,9 @@
     };
     range.addEventListener('input', function(){ update(this.value); });
     update(range.value);
+    // esconde a dica de "arraste" e para o pulso na primeira interação
+    var markUsed = function(){ mv.classList.add('mv-used'); };
+    ['pointerdown','input','keydown','touchstart'].forEach(function(ev){ range.addEventListener(ev, markUsed, {once:true, passive:true}); });
   }
 
   // ---- sticky mobile bar (após hero, some na oferta) ----
