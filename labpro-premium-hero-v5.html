@@ -374,9 +374,8 @@
         <div class="mv-chips" role="group" aria-label="Escolha o marcador">
           <button class="mv-chip" data-marker="b12" aria-pressed="true">Vitamina B12</button>
           <button class="mv-chip" data-marker="ferritina">Ferritina</button>
-          <button class="mv-chip" data-marker="vitd">Vitamina D</button>
-          <button class="mv-chip" data-marker="hemato">Hematócrito</button>
-          <button class="mv-chip" data-marker="urico">Ácido Úrico</button>
+          <button class="mv-chip" data-marker="hemoglobina">Hemoglobina</button>
+          <button class="mv-chip" data-marker="tsh">TSH</button>
         </div>
 
         <p class="mv-steplabel"><b>2.</b> Escolha o gênero <span class="mv-steptip">(o valor ideal muda)</span></p>
@@ -636,33 +635,24 @@
         ideal:'Manutenção:Ferro Bisglicinato (ou lipossomal) 20 mg/dia após o café ou almoço, por 3 meses; reavaliar.\nEvitar café, chá preto, leite e cálcio próximos à ingestão.',
         above:'Avaliar Transferrina (200 a 400 mg/dL), Saturação de transferrina (25 a 40%) e Hemoglobina.\nTransferrina baixa pode indicar déficit de Vitamina A, C, B2, B9 ou B12.\nO ferro sérico isolado não é confiável (varia com a alimentação do dia anterior).',
         below:'Reposição:Ferro Bisglicinato ou Quelado 40 mg/dia após o café, por 90 dias; reavaliar.\nFórmula sugerida (1 dose/dia após o café):\n• Ferro (Bisglicinato) 30 mg\n• Metilfolato (B9) 250 mcg\n• Vitamina A 5.000 UI\n• Riboflavina (B2) 25 mg\n• Vitamina C 150 mg\n• Zinco (Quelado) 15 mg\nEvitar café, leite e derivados próximos à ingestão.' } },
-    vitd: { name:'Vitamina D (25-OH)', unit:'ng/mL', min:10, max:120, step:1, dec:0, def:70,
-      ref:{ f:[60,80], m:[60,80] },
-      sig:{ ideal:'Dentro do valor ideal.',
-            above:'Acima do ideal: atenção na conduta, manter em dose de manutenção.',
-            below:'Abaixo de 60: requer reposição.' },
-      conduta:{
-        ideal:'Manutenção:Vitamina D3 + K2-MK7 (50 mcg), 2.000 UI/dia após a refeição principal, por 3 meses; reavaliar.\nAvaliar cofatores: Magnésio, Vitaminas B2 e B3, Ferro e função renal.',
-        above:'Manutenção:Vitamina D3 + K2-MK7 (50 mcg), 2.000 UI/dia após a refeição principal, por 3 meses; reavaliar.',
-        below:'Reposição:Vitamina D3 + K2-MK7 (100 mcg).\nDose = (valor do exame em ng/mL) × 1.000 ÷ 6 = UI/dia (máximo 4.000 UI/dia).\nEx.: 30 ng/mL → 5.000 → limitar a 4.000 UI/dia. 1 dose/dia após a refeição principal, por 3 meses; reavaliar.\nK2 contraindicado com anticoagulantes, distúrbios de coagulação, trombose prévia ou hepatopatia grave.' } },
-    hemato: { name:'Hematócrito', unit:'%', min:25, max:60, step:1, dec:0, def:37,
-      ref:{ f:[39,47], m:[42,48] },
+    hemoglobina: { name:'Hemoglobina', unit:'g/dL', min:8, max:20, step:0.1, dec:1, def:13.8,
+      ref:{ f:[13.5,15], m:[14,16] },
       sig:{ ideal:'Dentro dos valores ideais para o gênero.',
             above:'Acima: possível hemocromatose, hipóxia, excesso de ferro ou desidratação.',
             below:'Possível anemia.' },
       conduta:{
         ideal:'Manter e reavaliar.',
         above:'Não há suplementação neste caso: investigar as causas apontadas no significado.',
-        below:'Identificar a deficiência (Ferro sérico, Ferritina, Vitamina B12, Ácido Fólico) e suplementar conforme o nutriente deficiente.\nSe esses estiverem normais, checar os transportadores correspondentes.' } },
-    urico: { name:'Ácido Úrico', unit:'mg/dL', min:1, max:10, step:0.1, dec:1, def:6.2,
-      ref:{ f:[2.5,3.9], m:[3.5,4.9] },
-      sig:{ ideal:'Boa saúde renal, baixa inflamação e insulina equilibrada.',
-            above:'Alto se associa a inflamação, resistência à insulina, risco cardiovascular e sobrecarga renal (dieta rica em frutose, álcool ou purinas).',
-            below:'Baixo pode indicar pouca proteína, desnutrição, hipotireoidismo, hepatopatia ou déficit de B12, B6 ou Zinco.' },
+        below:'Identificar a deficiência (Ferro, Vitamina B12 ou B9) pelos marcadores específicos e seus transportadores, e suplementar conforme o nutriente identificado.\nSe esses estiverem dentro do ideal, checar também os transportadores correspondentes.' } },
+    tsh: { name:'TSH (Hormônio Tireoestimulante)', unit:'µUI/mL', min:0, max:8, step:0.1, dec:1, def:4,
+      ref:{ f:[1,2.5], m:[1,2.5] },
+      sig:{ ideal:'Dentro do valor ideal: função tireoidiana equilibrada.',
+            above:'Acima de 2,5: possível hipotireoidismo subclínico ou primário. A hipófise estimula a tireoide em excesso, mas ela responde de forma ineficiente. Pode ser o primeiro sinal de inflamação tireoidiana ou de deficiência nutricional.',
+            below:'Abaixo de 1,0: possível hipertireoidismo ou excesso de T3/T4, iodo, tirosina ou hormônio manipulado. Também pode ocorrer em estresse crônico ou uso de corticoides.' },
       conduta:{
-        ideal:'Reavaliar em 6 meses.',
-        above:'Sugestão de suplementação:\n• Vitamina C 300 a 500 mg/dia (fracionada)\n• Magnésio Bisglicinato 150 a 300 mg/dia à noite\n• Ômega-3 (EPA+DHA) 1 a 2 g/dia no almoço\n• Taurina 500 mg à noite\n• Cardo-mariano (Silimarina) 200 a 300 mg/dia à noite (requer habilitação em fitoterapia)',
-        below:'Aumentar leve a moderadamente a ingestão de proteínas; investigar a tireoide (TSH, T4, T3); corrigir carências; avaliar sinais de doença hepática.' } }
+        ideal:'Manter os hábitos e reavaliar periodicamente.',
+        above:'Investigar T3 Livre, T4 Livre, TPO e Tireoglobulina.\nCorrigir e suplementar as carências:\n• Iodo (iodeto de potássio)\n• Selênio (selenometionina)\n• Zinco (quelato)\n• Ferro (quelato)\n• Magnésio (glicinato ou treonato)\n• Tirosina (L-tirosina)\n• Vitamina A, Vitamina D3 (colecalciferol) e B12 (metilcobalamina)\nReduzir alimentos inflamatórios e avaliar autoimunidade (Hashimoto). Dosagens conforme avaliação individual; mínimo 3 meses, com reavaliação.',
+        below:'Avaliar T3 Livre, T4 Livre, TPO e Tireoglobulina.\nReduzir suplementos com iodo e tirosina (se em uso).\nAvaliar função adrenal e cortisol.\nAjustar a alimentação (evitar excesso de algas, sal iodado e cafeína) e checar deficiência de Vitamina A, D, Selênio, Zinco, Manganês, Magnésio, Ferritina e B12.' } }
   };
   var mv = document.getElementById('mv');
   var range = document.getElementById('mvRange');
